@@ -26,4 +26,18 @@ function playGame(playerChoice) {
     PlayerDisplay.textContent = `PLAYER: ${playerChoice}`;
     ComputerDisplay.textContent = `COMPUTER: ${computerChoice}`;
     ResultDisplay.textContent = result;
+    switch (result) {
+    case "YOU WIN!":
+        ResultDisplay.classList.remove("redText"); // Remove the opposite class
+        ResultDisplay.classList.add("greenText");
+        break;
+    case "YOU LOSE!":
+        ResultDisplay.classList.remove("greenText"); // Remove the opposite class
+        ResultDisplay.classList.add("redText");
+        break;
+    default:
+        // If it's a tie, remove both classes
+        ResultDisplay.classList.remove("greenText", "redText");
+        break;
+}
 }
